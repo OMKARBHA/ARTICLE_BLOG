@@ -1,0 +1,19 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<div class="form-group">
+    <label for="title" >Title</label>
+    <input required type="text" value="<%=articles.title%>"  name="title" id="title" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="description " class="mt-2" >Description</label>
+    <textarea  name="description" id="description" class="form-control "><%= articles.description %></textarea>
+</div>
+
+<div class="form-group">
+    <label for="markdown " class="mt-2" >Markdown</label>
+    <textarea required name="markdown" id="markdown" class="form-control "><%= articles.markdown %></textarea>
+</div>
+
+<a href="/" class="btn btn-secondary mt-4">CANCEL</a>
+<button type="submit" name="submit" class="btn btn-primary mt-4">SAVE</button>

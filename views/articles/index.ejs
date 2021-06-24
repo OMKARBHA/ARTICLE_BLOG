@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <u><h1 class="mb-2 mt-4">POST YOUR OWN ARTICLES</h1></u>
+        <a href="/articles/create_article" class="btn btn-success mt-2">NEW ARTICLE</a>
+        <br><BR>
+        <% articles.forEach(article => { %>
+           <div class="card mb-4" >
+               <div class="card-body"  > 
+                   <h4 class="card-title"><%= article.title %></h4>
+                   <div class="subtitle text-muted mb-2">
+                        <%= article.createdat.toLocaleDateString() %>
+                   </div>
+                   <div class="card-text mb-2 "><%= article.description %></div>
+                   <a href="articles/<%= article.slug %>" class="btn btn-info">READ ME</a>
+                   <a href="articles/edit/<%= article._id %>" class="btn btn-secondary">EDIT</a>
+
+                   <form action="/articles/<%= article.id %>?_method=DELETE" class="d-inline" method="POST">
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                   
+                 </div>
+           </div>
+        <% }) %>
+         
+    
+
+      </div>
+      
+        
+    </div>
+</body>
+</html>
